@@ -1,0 +1,133 @@
+
+.cbwrapper {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  position: relative;
+}
+
+.inputbox {
+  display: inline-block;
+  -moz-border-radius-bottomleft: 0.5em;
+  -webkit-border-bottom-left-radius: 0.5em;
+  -o-border-bottom-left-radius: 0.5em;
+  -ms-border-bottom-left-radius: 0.5em;
+  -khtml-border-bottom-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  float: left;
+  margin: 0px;
+  height: 1em;
+  background-color: white;
+  padding: 3px;
+  font-size: inherit;
+  padding-left: 5px;
+  border: solid 2px silver;
+  margin-right: 1px;
+}
+
+.ie7 .inputbox {
+  padding-left: 0px;
+}
+
+.dropdown {
+  display: block;
+  float: left;
+  -moz-border-radius-topright: 0.5em;
+  -webkit-border-top-right-radius: 0.5em;
+  -o-border-top-right-radius: 0.5em;
+  -ms-border-top-right-radius: 0.5em;
+  -khtml-border-top-right-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  width: 1em;
+  height: 1em;
+  background-color: silver;
+  padding: 3px;
+  border-top: solid 2px silver;
+  border-bottom: solid 2px silver;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.arrow-S {
+  display: block;
+  position: relative;
+  margin: 0;
+  top: .25em;
+  border-top: .5em solid white;
+  border-left: .5em solid transparent;
+  border-right: .5em solid transparent;
+  border-bottom: none;
+}
+
+/* assumes modernizr */
+.ie6 .arrow-S {
+  /* ie6 transparent fix */
+  /*_border-right-color: pink;*/
+  border-left-color: pink;
+  border-right-color: pink;
+  filter: chroma(color=pink);
+}
+
+.dropdownlist {
+  -moz-border-radius-topleft: 0.5em;
+  -webkit-border-top-left-radius: 0.5em;
+  -o-border-top-left-radius: 0.5em;
+  -ms-border-top-left-radius: 0.5em;
+  -khtml-border-top-left-radius: 0.5em;
+  border-top-left-radius: 0.5em;
+  -moz-border-radius-bottomright: 0.5em;
+  -webkit-border-bottom-right-radius: 0.5em;
+  -o-border-bottom-right-radius: 0.5em;
+  -ms-border-bottom-right-radius: 0.5em;
+  -khtml-border-bottom-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-top: 2px;
+  display: none;
+  padding: 2px;
+  float: left;
+  position: relative;
+  border: solid 2px silver;
+  height: 150px;
+  z-index: 1000; /* i hate z-index... what if someone else uses 1001... it's dumn f'n solution */
+}
+.dropdownlist .highlighted {
+  background-color: silver;
+  border: solid 1px transparent;
+  -moz-border-radius: 0.25em;
+  -webkit-border-radius: 0.25em;
+  -o-border-radius: 0.25em;
+  -ms-border-radius: 0.25em;
+  -khtml-border-radius: 0.25em;
+  border-radius: 0.25em;
+}
+
+.dropdownlist .selected {
+  background-color: gray;
+  border: solid 1px transparent;
+  -moz-border-radius: 0.25em;
+  -webkit-border-radius: 0.25em;
+  -o-border-radius: 0.25em;
+  -ms-border-radius: 0.25em;
+  -khtml-border-radius: 0.25em;
+  border-radius: 0.25em;
+  color: white;
+}
+
+.dropdownitem {
+  position: relative;
+  float: left;
+  clear: left;
+  list-style-type: none;
+  line-height: 1;
+  margin-top: 1px;
+  padding: 2px;
+  margin-left: 0px;
+  padding-left: 2px;
+  width: 100%;
+  white-space: nowrap;
+  margin-bottom: 1px;
+  cursor: pointer;
+  cursor: hand;
+}
