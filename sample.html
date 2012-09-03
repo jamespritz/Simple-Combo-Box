@@ -31,6 +31,8 @@
 
     </select>
 
+    <button id="btnchange">change to Eighth</button>
+
 
     <script type="text/javascript">
 
@@ -39,6 +41,10 @@
             $(document).ready(function (e)
             {
                 $('#sample').SimpleComboBox();
+            });
+
+            $("#btnchange").click(function (e) {
+                $('#sample').val('8').trigger('change');
             });
 
         })(jQuery);

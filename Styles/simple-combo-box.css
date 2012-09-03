@@ -1,6 +1,17 @@
-
-ol, ul {
-  list-style: none;
+/* line 17, C:/Program Files (X86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -9,7 +20,62 @@ ol, ul {
   vertical-align: baseline;
 }
 
+/* line 20, C:/Program Files (X86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+}
 
+/* line 22, C:/Program Files (X86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, C:/Program Files (X86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, C:/Program Files (X86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, C:/Program Files (X86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, C:/Program Files (X86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, C:/Program Files (X86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 114, C:/Program Files (X86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 8, E:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+ol, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  padding-left: 10px;
+}
+
+/* line 20, E:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .cbwrapper {
   padding: 0px;
   margin: 0px;
@@ -17,6 +83,7 @@ ol, ul {
   position: relative;
 }
 
+/* line 30, E:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .inputbox {
   display: inline-block;
   -moz-border-radius-bottomleft: 0.5em;
@@ -36,10 +103,12 @@ ol, ul {
   margin-right: 1px;
 }
 
+/* line 45, E:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .ie7 .inputbox {
   padding-left: 0px;
 }
 
+/* line 50, E:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .dropdown {
   display: block;
   float: left;
@@ -59,6 +128,7 @@ ol, ul {
   cursor: hand;
 }
 
+/* line 65, E:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .arrow-S {
   display: block;
   position: relative;
@@ -71,6 +141,7 @@ ol, ul {
 }
 
 /* assumes modernizr */
+/* line 78, E:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .ie6 .arrow-S {
   /* ie6 transparent fix */
   /*_border-right-color: pink;*/
@@ -79,6 +150,7 @@ ol, ul {
   filter: chroma(color=pink);
 }
 
+/* line 86, E:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .dropdownlist {
   -moz-border-radius-topleft: 0.5em;
   -webkit-border-top-left-radius: 0.5em;
@@ -101,8 +173,9 @@ ol, ul {
   position: relative;
   border: solid 2px silver;
   height: 150px;
-  z-index: 1000; /* i hate z-index... what if someone else uses 1001... it's dumn f'n solution */
+  z-index: 1000;
 }
+/* line 100, E:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .dropdownlist .highlighted {
   background-color: silver;
   border: solid 1px transparent;
@@ -113,7 +186,7 @@ ol, ul {
   -khtml-border-radius: 0.25em;
   border-radius: 0.25em;
 }
-
+/* line 106, E:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .dropdownlist .selected {
   background-color: gray;
   border: solid 1px transparent;
@@ -126,6 +199,7 @@ ol, ul {
   color: white;
 }
 
+/* line 115, E:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .dropdownitem {
   position: relative;
   float: left;

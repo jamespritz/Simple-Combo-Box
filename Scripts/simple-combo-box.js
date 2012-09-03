@@ -68,7 +68,7 @@ $.fn.SimpleComboBox = function ( ) {
     var _items; 
 
     //created by plugin to wrap original select box
-    var $_jp_wrapper;
+    var $_scb_wrapper;
     var $_this = this;
     var $listbox, $button, $txtbox, $dbg;
     var hIdx = -1;
@@ -83,27 +83,27 @@ $.fn.SimpleComboBox = function ( ) {
     function _init() {
 
         //wrap control so we control container
-        $_jp_wrapper = $_this.wrap('<div id="' + id + '_wrapper" class="cbwrapper" style="width:' + width + 'px;">').parent();
+        $_scb_wrapper = $_this.wrap('<div id="' + id + '_wrapper" class="cbwrapper" style="width:' + width + 'px;">').parent();
 
         //they button style has a 3px padding.
         var buttonWidth = ONEEM + 6;
         //+ 1 xtra px 2 compns8 4 px2em rounding
-        var textWidth = $_jp_wrapper.width() - (buttonWidth + 14);
+        var textWidth = $_scb_wrapper.width() - (buttonWidth + 14);
 
         //create input box
         $txtbox = $('<input id="' + id + '_txt" type="text" AutoCompleteType="Disabled" class="inputbox" placeholder="Search" style="width:' + textWidth + 'px"/>');
-        $_jp_wrapper.append($txtbox);
+        $_scb_wrapper.append($txtbox);
 
         //create button to invoke dropdown
         $button = $('<span id="' + id + '_dd" class="dropdown"><span class="arrow-S">&nbsp;</span></span>');
-        $_jp_wrapper.append($button);
+        $_scb_wrapper.append($button);
 
         //create container for list
         $listbox = $('<span id="' + id + '_list" class="dropdownlist" style="min-width:' + width + 'px"></span>');
-        $_jp_wrapper.append($listbox);
+        $_scb_wrapper.append($listbox);
         
         $dbg = $('<span id="' + id + '_dbg"></span>');
-        $_jp_wrapper.append($dbg);
+        $_scb_wrapper.append($dbg);
 
         //reset and hide original listbox
         $_this.css("margin", "0px").css('display', 'none');
@@ -112,7 +112,7 @@ $.fn.SimpleComboBox = function ( ) {
         proxySelect();
 
         //bind change event so we reflect any api calls against original dropdown
-        $_this.change(function() {
+        $_this.bind('change.scb', function() {
         
             var $newVal = $_this.find('option:selected');
             
@@ -123,7 +123,7 @@ $.fn.SimpleComboBox = function ( ) {
             }
         });
      
-        $_jp_wrapper.keyup(function (event) {
+        $_scb_wrapper.on('keyup.scb', function (event) {
       
             switch (event.keyCode) {
                 case KEY_DOWN:
@@ -159,7 +159,7 @@ $.fn.SimpleComboBox = function ( ) {
                     event.stopPropagation();
                 default: filter()
             }
-        }).keydown(function (event) {
+        }).on('keydown.scb', function (event) {
             switch (event.keyCode) {
                 case KEY_RTRN:
 
@@ -179,7 +179,7 @@ $.fn.SimpleComboBox = function ( ) {
             }
         });
 
-        $button.click(function (event) {
+        $button.bind('click.scb', function (event) {
             cancelEvent(event);
             showList();
             $txtbox.focus();
@@ -187,13 +187,11 @@ $.fn.SimpleComboBox = function ( ) {
         /*  make sure to close drop-down when user
             clicks on something else
         */
-        $('html').click(function () {
+        $('html').on('click.scb', function () {
             hideList();
          
         });
-
-
-       
+      
       
     }
 
@@ -333,7 +331,7 @@ $.fn.SimpleComboBox = function ( ) {
     function clearList()
     {
         //unbind all events to prevent memory leaks
-        $listbox.find('li').unbind();
+        $listbox.find('li').unbind('.scb');
         //remove existing search results
         $listbox.empty();
     }
