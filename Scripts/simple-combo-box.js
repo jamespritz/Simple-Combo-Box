@@ -43,7 +43,6 @@ $.fn.toEm = function (settings) {
     return (that / scopeVal).toFixed(8);
 };
 
-
 $.fn.toPx = function (settings) {
     settings = jQuery.extend({
         scope: 'body'
@@ -56,19 +55,21 @@ $.fn.toPx = function (settings) {
 };
 
 
-$.fn.SimpleComboBox = function ( ) {
 
-    //KEY CODE CONSTANTS
+/*
+Converts an existing SELECT into a combo-box
+*/
+$.fn.JPComboBox = function () {
+
     var KEY_LEFT = 37, KEY_UP = 38, KEY_RIGHT = 39, KEY_DOWN = 40,
         KEY_ESC = 27, KEY_RTRN = 13, KEY_BKSPC = 8, KEY_TAB = 9, KEY_F4 = 115;
 
-    //Calculate the pixels in one em for the 
     var ONEEM = $(1).toPx();
 
-    var _items; 
+    var _items;
 
     //created by plugin to wrap original select box
-    var $_scb_wrapper;
+    var $_jp_wrapper;
     var $_this = this;
     var $listbox, $button, $txtbox, $dbg;
     var hIdx = -1;
@@ -83,48 +84,46 @@ $.fn.SimpleComboBox = function ( ) {
     function _init() {
 
         //wrap control so we control container
-        $_scb_wrapper = $_this.wrap('<div id="' + id + '_wrapper" class="cbwrapper" style="width:' + width + 'px;">').parent();
+        $_jp_wrapper = $_this.wrap('<div id="' + id + '_wrapper" class="cbwrapper" style="width:' + width + 'px;">').parent();
 
-        //they button style has a 3px padding.
         var buttonWidth = ONEEM + 6;
         //+ 1 xtra px 2 compns8 4 px2em rounding
-        var textWidth = $_scb_wrapper.width() - (buttonWidth + 14);
+        var textWidth = $_jp_wrapper.width() - (buttonWidth + 14);
 
         //create input box
-        $txtbox = $('<input id="' + id + '_txt" type="text" AutoCompleteType="Disabled" class="inputbox" placeholder="Search" style="width:' + textWidth + 'px"/>');
-        $_scb_wrapper.append($txtbox);
+        $txtbox = $('<input id="' + id + '_txt" type="text" class="inputbox" AutoCompleteType="Disabled" placeholder="Search" style="width:' + textWidth + 'px"/>');
+        $_jp_wrapper.append($txtbox);
 
         //create button to invoke dropdown
         $button = $('<span id="' + id + '_dd" class="dropdown"><span class="arrow-S">&nbsp;</span></span>');
-        $_scb_wrapper.append($button);
+        $_jp_wrapper.append($button);
 
         //create container for list
         $listbox = $('<span id="' + id + '_list" class="dropdownlist" style="min-width:' + width + 'px"></span>');
-        $_scb_wrapper.append($listbox);
-        
+        $_jp_wrapper.append($listbox);
+
         $dbg = $('<span id="' + id + '_dbg"></span>');
-        $_scb_wrapper.append($dbg);
+        $_jp_wrapper.append($dbg);
 
         //reset and hide original listbox
         $_this.css("margin", "0px").css('display', 'none');
-        
+
         //copy items from original listbox
         proxySelect();
 
         //bind change event so we reflect any api calls against original dropdown
-        $_this.bind('change.scb', function() {
-        
+        $_this.change(function () {
+
             var $newVal = $_this.find('option:selected');
-            
-            if ($newVal != null)
-            {
+
+            if ($newVal != null) {
                 var item = $listbox.find('li[data-id="' + $newVal.attr('value') + '"]').first();
                 item.trigger('click');
             }
         });
-     
-        $_scb_wrapper.on('keyup.scb', function (event) {
-      
+
+        $_jp_wrapper.keyup(function (event) {
+
             switch (event.keyCode) {
                 case KEY_DOWN:
 
@@ -151,15 +150,21 @@ $.fn.SimpleComboBox = function ( ) {
                     $txtbox.val($txtbox.val()); //force cursor back to end
                     break;
                 case KEY_RTRN:
-                    if (hIdx >= 0) $listbox.find('li:eq(' + hIdx + ')').trigger('select');
                     event.stopPropagation();
+                    if (hIdx >= 0) $listbox.find('li:eq(' + hIdx + ')').trigger('select');
+
+                    break;
+                case KEY_RTRN:
+
+                    cancelEvent(event);
+                    //event.stopPropagation();
                     break;
                 case KEY_F4:
                     if (!listVisible) showList();
                     event.stopPropagation();
                 default: filter()
             }
-        }).on('keydown.scb', function (event) {
+        }).keydown(function (event) {
             switch (event.keyCode) {
                 case KEY_RTRN:
 
@@ -167,6 +172,7 @@ $.fn.SimpleComboBox = function ( ) {
                     //event.stopPropagation();
                     break;
                 case KEY_TAB:
+
                     if (selected.value == null) {
                         $txtbox.val("");
                         text = "";
@@ -179,44 +185,44 @@ $.fn.SimpleComboBox = function ( ) {
             }
         });
 
-        $button.bind('click.scb', function (event) {
-            cancelEvent(event);
+        $button.click(function (event) {
+            event.stopPropagation();
             showList();
             $txtbox.focus();
         });
         /*  make sure to close drop-down when user
-            clicks on something else
+        clicks on something else
         */
-        $('html').on('click.scb', function () {
+        $('html').click(function () {
             hideList();
-         
+
         });
-      
-      
+
+
+
+
     }
 
     /*
-        direction: 'up' or 'down'
+    direction: 'up' or 'down'
     */
-    function scroll(direction)
-    {
+    function scroll(direction) {
         var i = (direction == 'down') ? 1 : -1;
         var count = ($listbox.find('li').length);
         var idx = -1;
-     
+
         //if nothing in list... nothing to do
         if (count > 0) {
 
 
             //find index of selected
-            if (hIdx == -1)
-            {
+            if (hIdx == -1) {
                 var $selected = $listbox.find('li:selected').first();
                 if ($selected != null) hIdx = $selected.index();
             }
             idx = hIdx;
 
-          
+
             //calculate move
             idx += i;
 
@@ -227,13 +233,13 @@ $.fn.SimpleComboBox = function ( ) {
                 $selected.trigger('off');
 
             } else if (idx < count) {
-                
-              
+
+
                 var $selected = $listbox.find('li:eq(' + idx + ')').first();
                 $selected.trigger('over');
-                
+
             }
-            
+
         }
         else return null;
     }
@@ -252,23 +258,13 @@ $.fn.SimpleComboBox = function ( ) {
             $this.addClass('highlighted');
         }
 
-        ensureVisible($this);
-
-        //global value to indicate that something is hovered
-        hIdx = $this.index();
-
-        
-
-    };
-
-    function ensureVisible(option)
-    {
         var vpTop = $listbox.scrollTop();
-        var vpBottom = vpTop + $listbox.outerHeight();
-        var elTop = option.position().top;
-        var elBottom = elTop + option.outerHeight(true);
+        var vpBottom = vpTop + $listbox.outerHeight(false);
+        var elTop = $this.position().top;
+        var elBottom = elTop + $this.outerHeight(true);
 
         //$dbg.html('vpTop: {0} vpBottom: {1} elTop: {2} elBottom: {3}'.format(vpTop, vpBottom, elTop, elBottom));
+
 
         if (elTop < 0) {
             $listbox.scrollTop(vpTop + elTop);
@@ -276,32 +272,38 @@ $.fn.SimpleComboBox = function ( ) {
             var newTop = vpTop + (elBottom - (vpBottom - vpTop));
 
             $listbox.scrollTop(newTop);
+
         }
-    }
+
+        //global value to indicate that something is hovered
+        hIdx = $this.index();
+
+
+
+    };
 
     function off() {
         var $this = $(this);
         //if i'm not already selected, unhighlight
-        if (!$this.prop('selected')) {
-            
-            $this.removeClass('highlighted');
-        }
+        //if (!$this.prop('selected')) {
+        $this.removeClass('highlighted');
+        //}
         //global value to indicate that nothing is hovered
         hIdx = -1;
-        
+
     }
 
     function filter() {
 
         //get the value from the textbox
         var txtval = $txtbox.val();
-    
+
         //if different from last value
         if (txtval != text) {
             //reset selected to null since were doing a new search
             $.extend(selected, { value: null, text: null });
             hIdx = -1;
-           
+
             //set last text value
             text = txtval;
             //unbind all events to prevent memory leaks
@@ -325,83 +327,76 @@ $.fn.SimpleComboBox = function ( ) {
 
 
 
-        
+
     }
 
-    function clearList()
-    {
+    function clearList() {
         //unbind all events to prevent memory leaks
-        $listbox.find('li').unbind('.scb');
+        $listbox.find('li').unbind();
         //remove existing search results
         $listbox.empty();
     }
 
-    function showList()
-    {
+    function showList() {
         if (!listVisible) {
             $listbox.slideDown('fast');
             scroll('down');
             $listbox.find('li:eq(' + hIdx + ')').trigger('off');
             listVisible = true;
             hIdx = -1;
-
-            var $selected = $listbox.find('li:selected').first();
-            if ($selected != null) ensureVisible($selected);
-
         }
         else {
             hideList();
         }
 
-   
-       
-        
-        
+
+
+
+
     }
 
-    function select()
-    {
+    function select() {
         var $selected = $(this);
 
-      
+
         $listbox.find('li:selected').trigger('deselect');
 
         $selected.prop('selected', true);
- 
+
         $.extend(selected, { value: $selected.attr('data-id'), text: $selected.text() });
         $_this.val($selected.attr('data-id'));
         $txtbox.val($selected.text());
         text = $selected.text();
         $txtbox.focus();
+        //$selected.css('background-color', 'gray');
+        //$selected.css('color', 'white');
         $selected.addClass('selected');
         hideList();
     }
 
     function deselect() {
         var $this = $(this);
-     
-        $this.prop('selected', false);
-        $this.removeClass('selected');
-        $this.removeClass('highlighted');
 
+        $this.prop('selected', false);
+        //$this.css('background-color', 'white');
+        //$this.css('color', 'black');
+        $this.removeClass('selected');
 
 
     }
 
-    function hideList()
-    {
+    function hideList() {
         if (listVisible) {
-     
+
             $listbox.slideUp('fast');
             listVisible = false;
         }
     }
 
-    function defaultList()
-    {
+    function defaultList() {
         $listbox.append(ULFromList(_items));
     }
-    
+
     function ULFromList(arr) {
         var ul = $('<ul></ul>');
         var newOption;
@@ -422,20 +417,17 @@ $.fn.SimpleComboBox = function ( ) {
         return ul;
     }
 
-    function CreateListItem(id, value)
-    {
+    function CreateListItem(id, value) {
         return { id: id, value: value };
     }
 
-    function proxySelect()
-    {
+    function proxySelect() {
         _items = [];
         var index = -1;
 
 
 
-        for (i = 0; i < $_this.children().length; i++)
-        {
+        for (i = 0; i < $_this.children().length; i++) {
             $item = $_this.find('option:eq(' + i + ')');
             _items[i] = CreateListItem($item.attr('value'), $item.text());
             if ($item.prop('selected')) index = i;
@@ -445,9 +437,9 @@ $.fn.SimpleComboBox = function ( ) {
 
         $listbox.append(ULFromList(_items));
         if (index > 0) $listbox.find('li:eq(' + index + ')').trigger('select');
- 
 
-        
+
+
     }
 
     _init();

@@ -1,6 +1,5 @@
 ﻿@import "compass/reset";
 @import "compass/utilities/general/clearfix";
-@import "compass/css3/gradient";
 @import "compass/css3/shared";
 @import "compass/css3/border-radius";
 
@@ -35,11 +34,13 @@ ol, ul {
 	height: 1em;
 	background-color: white;
 	padding: 3px;
+	line-height: 1em;
 	font-size: inherit;
 	padding-left: 5px;
-	border: solid 2px silver;
+	border: solid 1px silver;
 	margin-right: 1px;	
 }
+
 
 .ie7 .inputbox
 {
@@ -54,10 +55,11 @@ ol, ul {
 	@include border-top-right-radius(.5em); 
 	width: 1em;
 	height: 1em;
+
 	background-color: silver;
 	padding:3px;
-	border-top: solid 2px silver;
-	border-bottom: solid 2px silver;
+	border-top: solid 1px silver;
+	border-bottom: solid 1px silver;
 	cursor: pointer;
 	cursor: hand;
 	}
@@ -84,6 +86,7 @@ ol, ul {
 }
 
 .dropdownlist {
+
 	@include border-top-left-radius(.5em); 
 	@include border-bottom-right-radius(.5em); 
 	overflow-y: scroll;
@@ -93,7 +96,7 @@ ol, ul {
 	padding:2px; 
 	float:left; 
 	position:relative;
-	border:solid 2px silver;
+	border:solid 1px silver;
 	height:150px;
 	z-index: 1000;
 
@@ -106,9 +109,11 @@ ol, ul {
 	.selected {
 		background-color: gray;
 		border: solid 1px transparent;
-		@include border-radius(.25em);
+		@include border-radius(.25em);	
 		color: white;
 	}
+
+	
 
 	}
 
@@ -128,4 +133,3 @@ ol, ul {
 	cursor: pointer;
 	cursor: hand;
 }
-
