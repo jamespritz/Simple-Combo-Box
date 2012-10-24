@@ -4,13 +4,15 @@
 @import "compass/css3/border-radius";
 
 
+@import "partials/colors";
+
 ol, ul {
   list-style: none;
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
+  font-family: $scb-font;
   vertical-align: baseline;
   padding-left: 10px;
 }
@@ -22,6 +24,7 @@ ol, ul {
 	margin:0px; 
 	border:0px; 
 	position:relative;
+	font-family: $scb-font;
 
 }
 
@@ -59,7 +62,7 @@ ol, ul {
 	background-color: silver;
 	padding:3px;
 	border-top: solid 1px silver;
-	border-bottom: solid 1px silver;
+	border-bottom: solid 1px $scb-border;
 	cursor: pointer;
 	cursor: hand;
 	}
@@ -96,18 +99,18 @@ ol, ul {
 	padding:2px; 
 	float:left; 
 	position:relative;
-	border:solid 1px silver;
+	border:solid 1px $scb-border;
 	height:150px;
 	z-index: 1000;
 
 	.highlighted {
-		background-color: silver;
+		background-color: change-color($scb-highlight, $lightness: 90%);
 		border: solid 1px transparent;
 		@include border-radius(.25em);
 	}
 
 	.selected {
-		background-color: gray;
+		background-color: change-color($scb-highlight, $lightness: 40%);
 		border: solid 1px transparent;
 		@include border-radius(.25em);	
 		color: white;

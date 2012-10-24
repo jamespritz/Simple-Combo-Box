@@ -31,6 +31,7 @@
 
     </select>
 
+
     <button id="btnchange">change to Eighth</button>
 
 
@@ -38,9 +39,26 @@
 
         (function ($) {
 
+            
+
             $(document).ready(function (e)
             {
-                $('#sample').JPComboBox();
+
+              
+
+                $('#sample').JPComboBox({
+                    debug: true
+                    /*,dataSource: function (callback) {
+                        $.ajax({
+                            url: 'http://search.twitter.com/search.json?rpp=100&q=microsoft',
+                            dataType: 'jsonp',
+                            success: function (data) { callback([{id:1,value:'hello'},{id:2,value:'bye',selected:true}]); }
+                        });
+                    
+                    }*/
+                });
+
+                
             });
 
             $("#btnchange").click(function (e) {

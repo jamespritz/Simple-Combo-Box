@@ -63,27 +63,28 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 7, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 9, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 ol, ul {
   list-style: none;
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
+  font-family: Helvetica, Arial;
   vertical-align: baseline;
   padding-left: 10px;
 }
 
-/* line 19, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 21, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .cbwrapper {
   padding: 0px;
   margin: 0px;
   border: 0px;
   position: relative;
+  font-family: Helvetica, Arial;
 }
 
-/* line 29, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 32, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .inputbox {
   display: inline-block;
   -moz-border-radius-bottomleft: 0.5em;
@@ -101,12 +102,12 @@ ol, ul {
   margin-right: 1px;
 }
 
-/* line 46, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 49, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .ie7 .inputbox {
   padding-left: 0px;
 }
 
-/* line 51, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 54, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .dropdown {
   display: block;
   float: left;
@@ -123,7 +124,7 @@ ol, ul {
   cursor: hand;
 }
 
-/* line 67, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 70, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .arrow-S {
   display: block;
   position: relative;
@@ -136,7 +137,7 @@ ol, ul {
 }
 
 /* assumes modernizr */
-/* line 80, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 83, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .ie6 .arrow-S {
   /* ie6 transparent fix */
   /*_border-right-color: pink;*/
@@ -145,7 +146,7 @@ ol, ul {
   filter: chroma(color=pink);
 }
 
-/* line 88, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 91, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .dropdownlist {
   -moz-border-radius-topleft: 0.5em;
   -webkit-border-top-left-radius: 0.5em;
@@ -164,9 +165,9 @@ ol, ul {
   height: 150px;
   z-index: 1000;
 }
-/* line 103, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 106, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .dropdownlist .highlighted {
-  background-color: silver;
+  background-color: #ccccff;
   border: solid 1px transparent;
   -webkit-border-radius: 0.25em;
   -moz-border-radius: 0.25em;
@@ -174,9 +175,9 @@ ol, ul {
   -o-border-radius: 0.25em;
   border-radius: 0.25em;
 }
-/* line 109, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 112, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .dropdownlist .selected {
-  background-color: gray;
+  background-color: #0000cc;
   border: solid 1px transparent;
   -webkit-border-radius: 0.25em;
   -moz-border-radius: 0.25em;
@@ -186,7 +187,7 @@ ol, ul {
   color: white;
 }
 
-/* line 120, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 123, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .dropdownitem {
   position: relative;
   float: left;

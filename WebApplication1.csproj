@@ -58,8 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="sample.html" />
-    <Content Include="sass\site.css">
-      <DependentUpon>simple-combo-box.scss</DependentUpon>
+    <Content Include="sass\partials\colors.css">
+      <DependentUpon>_colors.scss</DependentUpon>
     </Content>
     <Content Include="Scripts\simple-combo-box.js" />
     <Content Include="Web.config" />
@@ -71,6 +71,12 @@
     <Content Include="config.rb" />
     <Content Include="README.md" />
     <Content Include="sass\simple-combo-box.scss">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
+    <Content Include="sass\partials\_colors.scss">
       <Compile>False</Compile>
       <Minify>True</Minify>
       <CompileStyle>Nested</CompileStyle>

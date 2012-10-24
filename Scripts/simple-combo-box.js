@@ -1,4 +1,8 @@
-﻿function cancelEvent(e) {
+﻿/*
+Author: Dave Gardyasz -- http://lot224.net
+Helper Function: ensures an event is properly terminated.
+*/
+function cancelEvent(e) {
     e = !e ? window.event : e;
 
     if (e.stopPropagation)
@@ -11,6 +15,16 @@
     return false;
 }
 
+function isFunction(check)
+{
+    var getClass = {};
+    return check && getClass.toString.call(check) == '[object Function]';
+}
+
+/*
+Author: Dave Gardyasz -- http://lot224.net
+Helper Functions: String format methods
+*/
 if (!String.prototype.format) {
     String.prototype.format = function () {
         var n = this;
@@ -32,6 +46,11 @@ if (!String.format) {
     }
 }
 
+
+/*
+Author: James Pritz -- http://www.jamespritz.com
+Helper Function: conversion between em and px for exact measurement
+*/
 $.fn.toEm = function (settings) {
     settings = jQuery.extend({
         scope: 'body'
@@ -56,30 +75,48 @@ $.fn.toPx = function (settings) {
 
 
 
-/*
-Converts an existing SELECT into a combo-box
-*/
-$.fn.JPComboBox = function () {
 
+
+/*
+      Synopsis: Simple Combo-Box that allows user to search/refine list items by entry.  
+                * Can be applied to an existing SELECT, will proxy onchange for early binding.
+                * Can be applied to an LI or UL
+                * Can be configured to get data from outside source.
+                * HTML of list item can be customized via callback method.
+                * Basic skinning support
+        Author: James Pritz -- http://jamespritz.com
+*/
+$.fn.JPComboBox = function (settings) {
+
+    var options = $.extend({
+        debug: false
+        , dataSource: null
+    }, settings);
+
+
+
+    //keycodes to intercept
     var KEY_LEFT = 37, KEY_UP = 38, KEY_RIGHT = 39, KEY_DOWN = 40,
         KEY_ESC = 27, KEY_RTRN = 13, KEY_BKSPC = 8, KEY_TAB = 9, KEY_F4 = 115;
 
+    //get the exact pixels per em
     var ONEEM = $(1).toPx();
 
+    //array that holds the items available for the listbox
     var _items;
 
-    //created by plugin to wrap original select box
-    var $_jp_wrapper;
-    var $_this = this;
-    var $listbox, $button, $txtbox, $dbg;
+    var $_jp_wrapper;   //created by plugin to contain this control
+    var $_this = this;  //reference to html element to which this control is bound
+    var $listbox,       //contains all listitems for display
+        $button,        //button to force expansion of drop-down
+        $txtbox;        //text entry
+
     var hIdx = -1;
     var listVisible = false;
     var text = "";
     var selected = { value: null, text: null }
     var id = $_this[0].id;
     var width = $_this.width();
-
-
 
     function _init() {
 
@@ -90,6 +127,7 @@ $.fn.JPComboBox = function () {
         //+ 1 xtra px 2 compns8 4 px2em rounding
         var textWidth = $_jp_wrapper.width() - (buttonWidth + 14);
 
+        
         //create input box
         $txtbox = $('<input id="' + id + '_txt" type="text" class="inputbox" AutoCompleteType="Disabled" placeholder="Search" style="width:' + textWidth + 'px"/>');
         $_jp_wrapper.append($txtbox);
@@ -102,9 +140,6 @@ $.fn.JPComboBox = function () {
         $listbox = $('<span id="' + id + '_list" class="dropdownlist" style="min-width:' + width + 'px"></span>');
         $_jp_wrapper.append($listbox);
 
-        $dbg = $('<span id="' + id + '_dbg"></span>');
-        $_jp_wrapper.append($dbg);
-
         //reset and hide original listbox
         $_this.css("margin", "0px").css('display', 'none');
 
@@ -112,15 +147,17 @@ $.fn.JPComboBox = function () {
         proxySelect();
 
         //bind change event so we reflect any api calls against original dropdown
-        $_this.change(function () {
+        if ($_this[0].tagName == 'SELECT') {
+            $_this.change(function () {
 
-            var $newVal = $_this.find('option:selected');
+                var $newVal = $_this.find('option:selected');
 
-            if ($newVal != null) {
-                var item = $listbox.find('li[data-id="' + $newVal.attr('value') + '"]').first();
-                item.trigger('click');
-            }
-        });
+                if ($newVal != null) {
+                    var item = $listbox.find('li[data-id="' + $newVal.attr('value') + '"]').first();
+                    item.trigger('click');
+                }
+            });
+        }
 
         $_jp_wrapper.keyup(function (event) {
 
@@ -190,6 +227,9 @@ $.fn.JPComboBox = function () {
             showList();
             $txtbox.focus();
         });
+
+
+        /* #TODO: needs optimization, JP */
         /*  make sure to close drop-down when user
         clicks on something else
         */
@@ -263,10 +303,9 @@ $.fn.JPComboBox = function () {
         var elTop = $this.position().top;
         var elBottom = elTop + $this.outerHeight(true);
 
-        //$dbg.html('vpTop: {0} vpBottom: {1} elTop: {2} elBottom: {3}'.format(vpTop, vpBottom, elTop, elBottom));
+        Log('vptop: {0} vpbottom: {1} eltop: {2} elbottom: {3} hidx {4}'.format(vpTop, vpBottom, elTop, elBottom, $this.html()));
 
-
-        if (elTop < 0) {
+        if (elTop <= 0) {
             $listbox.scrollTop(vpTop + elTop);
         } else if (elBottom > (vpBottom - vpTop)) {
             var newTop = vpTop + (elBottom - (vpBottom - vpTop));
@@ -339,11 +378,22 @@ $.fn.JPComboBox = function () {
 
     function showList() {
         if (!listVisible) {
-            $listbox.slideDown('fast');
-            scroll('down');
-            $listbox.find('li:eq(' + hIdx + ')').trigger('off');
-            listVisible = true;
-            hIdx = -1;
+            $listbox.slideDown('fast', function () {
+
+                //find index of selected
+
+                var $selected = $listbox.find('li:selected').first();
+                if ($selected != null) $selected.trigger('over');
+         
+            
+                if (hIdx >= 0) $listbox.find('li:eq(' + hIdx + ')').trigger('off');
+
+                listVisible = true;
+                hIdx = -1;
+
+            });
+       
+
         }
         else {
             hideList();
@@ -364,7 +414,12 @@ $.fn.JPComboBox = function () {
         $selected.prop('selected', true);
 
         $.extend(selected, { value: $selected.attr('data-id'), text: $selected.text() });
-        $_this.val($selected.attr('data-id'));
+
+        $_jp_wrapper.trigger('change', $selected);
+
+        if ($_this[0].tagName == 'SELECT') {
+            $_this.val($selected.attr('data-id'));
+        }
         $txtbox.val($selected.text());
         text = $selected.text();
         $txtbox.focus();
@@ -403,6 +458,7 @@ $.fn.JPComboBox = function () {
         if ((arr != null) && (arr.length > 0)) {
             for (i = 0; i < arr.length; i++) {
                 newOption = $('<li class="dropdownitem" data-id="' + arr[i].id + '">' + arr[i].value + '</li>')
+                if ((arr[i].selected != 'undefined') && (arr[i].selected)) newOption.prop('selected', true);
                 ul.append(newOption);
 
                 newOption.bind('over', over);
@@ -417,34 +473,62 @@ $.fn.JPComboBox = function () {
         return ul;
     }
 
-    function CreateListItem(id, value) {
-        return { id: id, value: value };
+    function CreateListItem(id, value, selected) {
+        return { id: id, value: value, selected: selected };
     }
 
     function proxySelect() {
-        _items = [];
+        var _items = [];
         var index = -1;
 
+        
 
+        if (isFunction(options.dataSource))
+        {
+            Log('dataSource is function');
+            options.dataSource(fillList);
 
-        for (i = 0; i < $_this.children().length; i++) {
-            $item = $_this.find('option:eq(' + i + ')');
-            _items[i] = CreateListItem($item.attr('value'), $item.text());
-            if ($item.prop('selected')) index = i;
+        } else if ($_this[0].tagName == 'SELECT') {
+            for (i = 0; i < $_this.children().length; i++) {
+                $item = $_this.find('option:eq(' + i + ')');
+                _items[i] = CreateListItem($item.attr('value'), $item.text(), $item.prop('selected'));
+
+            }
+            fillList(_items);
+
         }
+        
 
 
+    }
 
-        $listbox.append(ULFromList(_items));
-        if (index > 0) $listbox.find('li:eq(' + index + ')').trigger('select');
+    function fillList(arr)
+    {
 
+        $listbox.empty();
 
+        if ((arr != null) && (arr.length > 0)) {
 
+            $listbox.append(ULFromList(arr));
+            var $selected = $listbox.find('li:selected');
+            if ($selected != null) $selected.trigger('select');
+
+        }
+    }
+
+    function Log(message) {
+        try {
+            if  (options.debug) {
+                console.log(message);
+            }
+        } catch (e) {
+            //do nothing
+        }
     }
 
     _init();
 
-
+    return $_jp_wrapper;
 
 };
 
