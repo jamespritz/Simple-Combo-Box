@@ -478,7 +478,7 @@ $.fn.JPComboBox = function (settings) {
     }
 
     function proxySelect() {
-        var _items = [];
+        var items = [];
         var index = -1;
 
         
@@ -486,15 +486,16 @@ $.fn.JPComboBox = function (settings) {
         if (isFunction(options.dataSource))
         {
             Log('dataSource is function');
+            
             options.dataSource(fillList);
 
         } else if ($_this[0].tagName == 'SELECT') {
             for (i = 0; i < $_this.children().length; i++) {
                 $item = $_this.find('option:eq(' + i + ')');
-                _items[i] = CreateListItem($item.attr('value'), $item.text(), $item.prop('selected'));
+                items[i] = CreateListItem($item.attr('value'), $item.text(), $item.prop('selected'));
 
             }
-            fillList(_items);
+            fillList(items);
 
         }
         
@@ -506,6 +507,7 @@ $.fn.JPComboBox = function (settings) {
     {
 
         $listbox.empty();
+        _items = arr;
 
         if ((arr != null) && (arr.length > 0)) {
 
