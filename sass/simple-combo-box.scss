@@ -5,6 +5,23 @@
 
 
 @import "partials/colors";
+@import "partials/typeography";
+
+
+/*
+	redifine colors to support more granular customization
+*/
+$jp-cb-color-brand : $jp-color-brand;
+$jp-cb-color-context : $jp-color-context;
+$jp-cb-color-text : $jp-color-text;
+$jp-cb-color-accent : $jp-color-accent;
+$jp-cb-color-alert : $jp-color-alert;
+
+$jp-cb-color-border : $jp-color-border;
+$jp-cb-color-background : $jp-color-background;
+
+$jp-cb-font : $jp-font;
+
 
 ol, ul {
   list-style: none;
@@ -12,10 +29,11 @@ ol, ul {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font-family: $scb-font;
+  font-family: $jp-cb-font;
   vertical-align: baseline;
   padding-left: 10px;
 }
+
 
 .cbwrapper
 {
@@ -24,7 +42,7 @@ ol, ul {
 	margin:0px; 
 	border:0px; 
 	position:relative;
-	font-family: $scb-font;
+	font-family: $jp-cb-font;
 
 }
 
@@ -35,12 +53,12 @@ ol, ul {
 	float: left;
 	margin: 0px;
 	height: 1em;
-	background-color: white;
+	background-color: $jp-cb-color-context;
 	padding: 3px;
 	line-height: 1em;
 	font-size: inherit;
 	padding-left: 5px;
-	border: solid 1px silver;
+	border: solid 1px $jp-cb-color-border;
 	margin-right: 1px;	
 }
 
@@ -59,10 +77,10 @@ ol, ul {
 	width: 1em;
 	height: 1em;
 
-	background-color: silver;
+	background-color: $jp-cb-color-background;
 	padding:3px;
-	border-top: solid 1px silver;
-	border-bottom: solid 1px $scb-border;
+	border-top: solid 1px $jp-cb-color-background;
+	border-bottom: solid 1px $jp-color-background;
 	cursor: pointer;
 	cursor: hand;
 	}
@@ -73,7 +91,7 @@ ol, ul {
 	margin: 0;
 	top: .25em;
 	
-	border-top: .5em solid white;
+	border-top: .5em solid $jp-cb-color-context;
 	border-left: .5em solid transparent;
 	border-right: .5em solid transparent;
 	border-bottom: none;
@@ -99,18 +117,18 @@ ol, ul {
 	padding:2px; 
 	float:left; 
 	position:relative;
-	border:solid 1px $scb-border;
+	border:solid 1px $jp-cb-color-border;
 	height:150px;
 	z-index: 1000;
 
 	.highlighted {
-		background-color: change-color($scb-highlight, $lightness: 90%);
+		background-color: change-color($jp-cb-color-brand, $lightness: 70%);
 		border: solid 1px transparent;
 		@include border-radius(.25em);
 	}
 
 	.selected {
-		background-color: change-color($scb-highlight, $lightness: 40%);
+		background-color: $jp-cb-color-brand;
 		border: solid 1px transparent;
 		@include border-radius(.25em);	
 		color: white;

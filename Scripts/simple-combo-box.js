@@ -15,8 +15,7 @@ function cancelEvent(e) {
     return false;
 }
 
-function isFunction(check)
-{
+function isFunction(check) {
     var getClass = {};
     return check && getClass.toString.call(check) == '[object Function]';
 }

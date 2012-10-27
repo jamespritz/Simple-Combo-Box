@@ -63,28 +63,44 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 9, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/*
+	Cut/Paste into controls sass file to 
+	redifine colors to support more granular customization
+
+$jp-<controlcode>-color-brand : $jp-color-brand;
+$jp-<controlcode>-color-context : $jp-color-context;
+$jp-<controlcode>-color-text : $jp-color-text;
+$jp-<controlcode>-color-accent : $jp-color-accent;
+$jp-<controlcode>-color-alert : $jp-color-alert;
+
+$jp-<controlcode>-color-border : $jp-color-border;
+$jp-<controlcode>-color-background : $jp-color-background;
+*/
+/*
+	redifine colors to support more granular customization
+*/
+/* line 26, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 ol, ul {
   list-style: none;
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
-  font-family: Helvetica, Arial;
+  font-family: Verdana, "Lucida Grande", FreeSans, sans-serif;
   vertical-align: baseline;
   padding-left: 10px;
 }
 
-/* line 21, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 39, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .cbwrapper {
   padding: 0px;
   margin: 0px;
   border: 0px;
   position: relative;
-  font-family: Helvetica, Arial;
+  font-family: Verdana, "Lucida Grande", FreeSans, sans-serif;
 }
 
-/* line 32, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 50, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .inputbox {
   display: inline-block;
   -moz-border-radius-bottomleft: 0.5em;
@@ -98,16 +114,16 @@ ol, ul {
   line-height: 1em;
   font-size: inherit;
   padding-left: 5px;
-  border: solid 1px silver;
+  border: solid 1px #4d4d4d;
   margin-right: 1px;
 }
 
-/* line 49, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 67, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .ie7 .inputbox {
   padding-left: 0px;
 }
 
-/* line 54, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 72, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .dropdown {
   display: block;
   float: left;
@@ -116,28 +132,28 @@ ol, ul {
   border-top-right-radius: 0.5em;
   width: 1em;
   height: 1em;
-  background-color: silver;
+  background-color: #cccccc;
   padding: 3px;
-  border-top: solid 1px silver;
-  border-bottom: solid 1px silver;
+  border-top: solid 1px #cccccc;
+  border-bottom: solid 1px #cccccc;
   cursor: pointer;
   cursor: hand;
 }
 
-/* line 70, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 88, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .arrow-S {
   display: block;
   position: relative;
   margin: 0;
   top: .25em;
-  border-top: .5em solid white;
+  border-top: 0.5em solid white;
   border-left: .5em solid transparent;
   border-right: .5em solid transparent;
   border-bottom: none;
 }
 
 /* assumes modernizr */
-/* line 83, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 101, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .ie6 .arrow-S {
   /* ie6 transparent fix */
   /*_border-right-color: pink;*/
@@ -146,7 +162,7 @@ ol, ul {
   filter: chroma(color=pink);
 }
 
-/* line 91, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 109, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .dropdownlist {
   -moz-border-radius-topleft: 0.5em;
   -webkit-border-top-left-radius: 0.5em;
@@ -161,13 +177,13 @@ ol, ul {
   padding: 2px;
   float: left;
   position: relative;
-  border: solid 1px silver;
+  border: solid 1px #4d4d4d;
   height: 150px;
   z-index: 1000;
 }
-/* line 106, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 124, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .dropdownlist .highlighted {
-  background-color: #ccccff;
+  background-color: #e6a77f;
   border: solid 1px transparent;
   -webkit-border-radius: 0.25em;
   -moz-border-radius: 0.25em;
@@ -175,9 +191,9 @@ ol, ul {
   -o-border-radius: 0.25em;
   border-radius: 0.25em;
 }
-/* line 112, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 130, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .dropdownlist .selected {
-  background-color: #0000cc;
+  background-color: #cb6828;
   border: solid 1px transparent;
   -webkit-border-radius: 0.25em;
   -moz-border-radius: 0.25em;
@@ -187,7 +203,7 @@ ol, ul {
   color: white;
 }
 
-/* line 123, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
+/* line 141, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/simple-combo-box.scss */
 .dropdownitem {
   position: relative;
   float: left;
