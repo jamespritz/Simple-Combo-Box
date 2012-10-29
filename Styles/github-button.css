@@ -1,0 +1,152 @@
+/*
+	Cut/Paste into controls sass file to 
+	redifine colors to support more granular customization
+
+$jp-<controlcode>-color-brand : $jp-color-brand;
+$jp-<controlcode>-color-context : $jp-color-context;
+$jp-<controlcode>-color-text : $jp-color-text;
+$jp-<controlcode>-color-accent : $jp-color-accent;
+$jp-<controlcode>-color-alert : $jp-color-alert;
+
+$jp-<controlcode>-color-border : $jp-color-border;
+$jp-<controlcode>-color-background : $jp-color-background;
+*/
+/* line 17, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/partials/_callout.scss */
+.jpcallout {
+  position: relative;
+  display: inline-block;
+  line-height: 1.2em;
+  font-size: inherit;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-left: 5px;
+  background-color: #cccccc;
+  border: solid 1px #999999;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  cursor: pointer;
+  cursor: hand;
+  color: black;
+  text-decoration: none;
+}
+/* line 32, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/partials/_callout.scss */
+.jpcallout:visited, .jpcallout:active {
+  color: inherit;
+  text-decoration: none;
+}
+/* line 36, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/partials/_callout.scss */
+.jpcallout:hover {
+  text-decoration: none;
+  background-color: #cb6828;
+  color: white;
+}
+/* line 41, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/partials/_callout.scss */
+.jpcallout:hover:before {
+  border-right-color: #cb6828;
+}
+/* line 44, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/partials/_callout.scss */
+.jpcallout:before, .jpcallout:after {
+  display: inline-block;
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-color: transparent;
+}
+/* line 58, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/partials/_callout.scss */
+.jpcallout:before {
+  border-right-color: #cccccc;
+  border-width: 4px;
+  left: -8px;
+  margin-top: -4px;
+}
+/* line 68, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/partials/_callout.scss */
+.jpcallout:after {
+  border-right-color: #999999;
+  border-width: 5px;
+  left: -10px;
+  z-index: -1;
+  margin-top: -5px;
+}
+
+/* assumes modernizr */
+/* line 81, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/partials/_callout.scss */
+.ie6 .jpcallout:before, .ie6 .jpcallout:after {
+  /* ie6 transparent fix */
+  /*_border-right-color: pink;*/
+  border-color: pink;
+  filter: chroma(color=pink);
+}
+
+/*
+	Cut/Paste into controls sass file to 
+	redifine colors to support more granular customization
+
+$jp-<controlcode>-color-brand : $jp-color-brand;
+$jp-<controlcode>-color-context : $jp-color-context;
+$jp-<controlcode>-color-text : $jp-color-text;
+$jp-<controlcode>-color-accent : $jp-color-accent;
+$jp-<controlcode>-color-alert : $jp-color-alert;
+
+$jp-<controlcode>-color-border : $jp-color-border;
+$jp-<controlcode>-color-background : $jp-color-background;
+*/
+/* line 17, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/github-button.scss */
+.hidden {
+  visibility: hidden;
+}
+
+/* line 20, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/github-button.scss */
+.jp-gh-ico {
+  position: relative;
+  top: 1px;
+  margin-right: 3px;
+  width: 14px;
+  height: 15px;
+  background-image: url("/images/github-icons.png");
+  display: inline-block;
+  background-repeat: none;
+}
+
+/* line 36, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/github-button.scss */
+.jp-gh-button {
+  font-size: 15px;
+  padding-left: 3px;
+  padding-right: 3px;
+  line-height: 1.2em;
+  font-size: 1em;
+  background-color: #cccccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  display: inline-block;
+  cursor: pointer;
+  cursor: hand;
+  border: solid 1px #999999;
+}
+/* line 38, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/github-button.scss */
+.jp-gh-button > a {
+  color: inherit;
+  text-decoration: none;
+}
+/* line 40, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/github-button.scss */
+.jp-gh-button > a:visited, .jp-gh-button > a:hover, .jp-gh-button > a:active {
+  color: inherit;
+  text-decoration: none;
+}
+/* line 45, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/github-button.scss */
+.jp-gh-button:hover, .jp-gh-button:focus, .jp-gh-button:active {
+  color: white;
+  background-color: #cb6828;
+}
+/* line 49, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/github-button.scss */
+.jp-gh-button:hover .jp-gh-ico, .jp-gh-button:focus .jp-gh-ico, .jp-gh-button:active .jp-gh-ico {
+  background-position: -25px 0;
+}

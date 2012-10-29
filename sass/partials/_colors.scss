@@ -1,0 +1,26 @@
+﻿
+
+$jp-color-brand: #cb6828;
+$jp-color-context: #ffffff;
+$jp-color-text: #000000;
+$jp-color-accent: #cb6828;
+$jp-color-alert: red;
+
+$jp-color-border: change-color($jp-color-context, $lightness: 60%);
+$jp-color-background: change-color($jp-color-context, $lightness: 80%);
+
+
+
+/*
+	Cut/Paste into controls sass file to 
+	redifine colors to support more granular customization
+
+$jp-<controlcode>-color-brand : $jp-color-brand;
+$jp-<controlcode>-color-context : $jp-color-context;
+$jp-<controlcode>-color-text : $jp-color-text;
+$jp-<controlcode>-color-accent : $jp-color-accent;
+$jp-<controlcode>-color-alert : $jp-color-alert;
+
+$jp-<controlcode>-color-border : $jp-color-border;
+$jp-<controlcode>-color-background : $jp-color-background;
+*/

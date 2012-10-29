@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <link href="Styles/github-button.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.8.1.js"></script>
+    <script src="Scripts/github-buttons.js"></script>
+
+
+    <title></title>
+</head>
+<body>
+
+    <span id="ghbutton"></span> 
+
+</body>
+
+    <script type="text/javascript">
+
+        (function ($) {
+
+            /* options... fork, follow, watch */
+            /* fork and watch require a repo... follow only requires a user */
+            $('#ghbutton').JPGitHubButton({ buttonType: 'fork', user: "psychegopro", repo: "simple-combo-box" });
+
+        })(jQuery);
+
+    </script>
+
+</html>
+

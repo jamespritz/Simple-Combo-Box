@@ -1,0 +1,63 @@
+﻿@import "partials/callout";
+@import "partials/colors";
+@import "compass/css3/border-radius";
+
+
+//redifine colors to support more granular customization
+$jp-gh-color-brand : $jp-color-brand;
+$jp-gh-color-context : $jp-color-context;
+$jp-gh-color-text : $jp-color-text;
+$jp-gh-color-accent : $jp-color-accent;
+$jp-gh-color-alert : $jp-color-alert;
+
+$jp-gh-color-border : $jp-color-border;
+$jp-gh-color-background : $jp-color-background;
+
+
+.hidden { visibility: hidden; }
+
+.jp-gh-ico
+{
+
+
+	position: relative;
+	top: 1px;
+	margin-right: 3px;
+	width:14px;
+	height:15px;
+	background-image: url("/images/github-icons.png");
+	display: inline-block;
+	background-repeat: none;
+	
+	 
+}
+
+.jp-gh-button
+{
+
+	> a{
+		color: inherit; text-decoration: none;
+		&:visited, &:hover, &:active { color: inherit; text-decoration: none; }
+
+
+	}
+
+	&:hover, &:focus, &:active {
+
+		color: white;
+		background-color: $jp-co-color-brand; 
+		.jp-gh-ico { background-position: -25px 0; }
+	}
+
+	font-size: 15px;
+	padding-left: 3px;
+	padding-right: 3px;
+	line-height: 1.2em;
+	font-size: 1em;
+	background-color: $jp-gh-color-background;
+	@include border-radius(3px);
+	display: inline-block;
+	cursor: pointer;
+	cursor: hand;
+	border: solid 1px $jp-gh-color-border;
+}
