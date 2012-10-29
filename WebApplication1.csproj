@@ -57,12 +57,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="gh-button-sample.html" />
+    <Content Include="images\github-icons-2x.png" />
+    <Content Include="images\github-icons.png" />
     <Content Include="sample.html" />
     <Content Include="sass\github-button.css">
       <DependentUpon>github-button.scss</DependentUpon>
     </Content>
     <Content Include="sass\partials\colors.css">
       <DependentUpon>_colors.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\partials\_callout.css">
+      <DependentUpon>_callout.scss</DependentUpon>
     </Content>
     <Content Include="sass\partials\_typeography.css">
       <DependentUpon>_typeography.scss</DependentUpon>
@@ -92,13 +98,19 @@
       <DebugInfo>False</DebugInfo>
     </Content>
     <Content Include="sass\partials\_typeography.scss">
-      <Compile>True</Compile>
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
+    <Content Include="sass\partials\_callout.scss">
+      <Compile>False</Compile>
       <Minify>True</Minify>
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </Content>
     <Content Include="sass\github-button.scss">
-      <Compile>True</Compile>
+      <Compile>False</Compile>
       <Minify>True</Minify>
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
