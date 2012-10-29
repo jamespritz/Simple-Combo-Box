@@ -13,7 +13,7 @@ $.fn.JPGitHubButton = function (settings) {
     $_this = this;
 
 
-    var template = '<span><span class="jp-gh-button"><span class="jp-gh-ico"></span><a href="#" target="_blank" class="jp-gh-caption"></a></span><a href="#" target="_blank" class="jpcallout hidden"></a></span>';
+    var template = '<span class="jp-gh-button-wrapper"><span class="jp-gh-button"><span class="jp-gh-ico"></span><a href="#" target="_blank" class="jp-gh-caption"></a></span><a href="#" target="_blank" class="jpcallout hidden"></a></span>';
 
     function _init() {
 

@@ -42,6 +42,7 @@ ol, ul {
 	margin:0px; 
 	border:0px; 
 	position:relative;
+	display: inline-block;
 	font-family: $jp-cb-font;
 
 }
@@ -115,8 +116,12 @@ ol, ul {
 	margin-top: 2px; 
 	display:none; 
 	padding:2px; 
-	float:left; 
-	position:relative;
+	background-color: $jp-cb-color-context;
+	padding:2px; 
+	margin-top: 9px;
+	top: 1em;
+	position: absolute;
+	left: 0px;
 	border:solid 1px $jp-cb-color-border;
 	height:150px;
 	z-index: 1000;

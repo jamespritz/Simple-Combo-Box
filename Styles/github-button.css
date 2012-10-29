@@ -102,6 +102,11 @@ $jp-<controlcode>-color-background : $jp-color-background;
 }
 
 /* line 20, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/github-button.scss */
+.jp-gh-button-wrapper {
+  font-size: 15px;
+}
+
+/* line 23, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/github-button.scss */
 .jp-gh-ico {
   position: relative;
   top: 1px;
@@ -113,9 +118,8 @@ $jp-<controlcode>-color-background : $jp-color-background;
   background-repeat: none;
 }
 
-/* line 36, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/github-button.scss */
+/* line 39, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/github-button.scss */
 .jp-gh-button {
-  font-size: 15px;
   padding-left: 3px;
   padding-right: 3px;
   line-height: 1.2em;
@@ -131,22 +135,22 @@ $jp-<controlcode>-color-background : $jp-color-background;
   cursor: hand;
   border: solid 1px #999999;
 }
-/* line 38, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/github-button.scss */
+/* line 41, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/github-button.scss */
 .jp-gh-button > a {
   color: inherit;
   text-decoration: none;
 }
-/* line 40, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/github-button.scss */
+/* line 43, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/github-button.scss */
 .jp-gh-button > a:visited, .jp-gh-button > a:hover, .jp-gh-button > a:active {
   color: inherit;
   text-decoration: none;
 }
-/* line 45, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/github-button.scss */
+/* line 48, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/github-button.scss */
 .jp-gh-button:hover, .jp-gh-button:focus, .jp-gh-button:active {
   color: white;
   background-color: #cb6828;
 }
-/* line 49, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/github-button.scss */
+/* line 52, C:/Users/JamieP/Personal/Projects/jamespritz/GitHub/Simple-Combo-Box/sass/github-button.scss */
 .jp-gh-button:hover .jp-gh-ico, .jp-gh-button:focus .jp-gh-ico, .jp-gh-button:active .jp-gh-ico {
   background-position: -25px 0;
 }

@@ -16,6 +16,9 @@ $jp-gh-color-background : $jp-color-background;
 
 .hidden { visibility: hidden; }
 
+
+.jp-gh-button-wrapper { font-size: 15px; }
+
 .jp-gh-ico
 {
 
@@ -49,7 +52,6 @@ $jp-gh-color-background : $jp-color-background;
 		.jp-gh-ico { background-position: -25px 0; }
 	}
 
-	font-size: 15px;
 	padding-left: 3px;
 	padding-right: 3px;
 	line-height: 1.2em;
