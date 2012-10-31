@@ -28,7 +28,7 @@ $.fn.JPGitHubButton = function (settings) {
                 getGitRepo(function (data) {
                     $_caption.text('Fork Me');
                     $_count.text(data.data.forks).removeClass('hidden')
-                    $_caption.attr('href', 'https://github.com/' + options.user + '/' + options.repo + '/network');
+                    $_caption.attr('href', 'https://github.com/' + options.user + '/' + options.repo);
                     $_count.attr('href','https://github.com/' + options.user + '/' + options.repo + '/network');
                 });
 
@@ -37,7 +37,7 @@ $.fn.JPGitHubButton = function (settings) {
                 getGitUser(function (data) {
                     $_caption.text('Follow ' + options.user);
                     $_count.text(data.data.followers).removeClass('hidden')
-                    $_caption.attr('href','https://github.com/' + options.user + '/followers');
+                    $_caption.attr('href','https://github.com/' + options.user);
                     $_count.attr('href','https://github.com/' + options.user + '/followers');
                 });
 
@@ -46,7 +46,7 @@ $.fn.JPGitHubButton = function (settings) {
                 getGitRepo(function (data) {
                     $_caption.text('Watch');
                     $_count.text(data.data.watchers).removeClass('hidden')
-                    $_caption.attr('href','https://github.com/' + options.user + '/' + options.repo + '/stargazers');
+                    $_caption.attr('href','https://github.com/' + options.user + '/' + options.repo);
                     $_count.attr('href','https://github.com/' + options.user + '/' + options.repo + '/stargazers');
                 });
 
